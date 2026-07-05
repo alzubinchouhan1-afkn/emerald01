@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Pattern Generator</h1>
+
+<div id="app">
+  <div id="canvas-wrap">
+    <canvas id="c" width="720" height="420"></canvas>
+  </div>
+
+  <div class="panel">
+    <div class="panel-row">
+      <div class="ctrl">
+        <label>Pattern</label>
+        <div class="tab-group" id="patternTabs">
+          <button class="tab active" data-p="grid">Grid</button>
+          <button class="tab" data-p="circles">Circles</button>
+          <button class="tab" data-p="hex">Hexagons</button>
+          <button class="tab" data-p="wave">Waves</button>
+          <button class="tab" data-p="spiral">Spiral</button>
+          <button class="tab" data-p="voronoi">Voronoi</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-row">
+      <div class="ctrl">
+        <label>Scale</label>
+        <div class="ctrl-row">
+          <input type="range" id="scale" min="10" max="80" value="30" step="1">
+          <span id="scaleOut">30</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="ctrl">
+        <label>Speed</label>
+        <div class="ctrl-row">
+          <input type="range" id="speed" min="0" max="5" value="1" step="0.1">
+          <span id="speedOut">1.0</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="ctrl">
+        <label>Palette</label>
+        <select id="palette">
+          <option value="mono">Mono</option>
+          <option value="neon">Neon</option>
+          <option value="earth">Earth</option>
+          <option value="pastel">Pastel</option>
+          <option value="sunset">Sunset</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>Fill</label>
+        <select id="fillMode">
+          <option value="outline">Outline</option>
+          <option value="solid">Solid</option>
+          <option value="gradient">Gradient</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="panel-row">
+      <div class="btn-group">
+        <button class="action" onclick="randomize()">↻ Randomize</button>
+        <button class="action" id="pauseBtn" onclick="togglePause()">⏸ Pause</button>
+        <button class="action" onclick="saveImg()">↓ Save PNG</button>
+      </div>
+      <span id="seedVal"></span>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
